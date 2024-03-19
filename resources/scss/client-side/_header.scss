@@ -1,5 +1,6 @@
 #full-navbar{
     z-index: 999;
+    height: 80px;
 
     ul a.nav-link{
         color: white;
@@ -14,8 +15,8 @@
         button{}
         #navbarSupportedContent{
             #logoHeader{
-                height:100px ;
-                width: 300px;
+                height:70px ;
+                width: 210px;
                 img{
                     width: 100%;
                     height: 100%;
