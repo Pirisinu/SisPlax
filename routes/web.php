@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
 });
 
 /* ROTTE ADMIN PRIVATE */
-Route::middleware(['auth', 'verified'])
+Route::middleware(['auth', 'verified', 'isAdmin'])
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
