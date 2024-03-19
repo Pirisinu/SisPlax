@@ -13,7 +13,7 @@ class ServiceController extends Controller
      */
     public function index() {
         $services = Service::all();
-        return view('my_services.dashboardAllServices', compact('services'));
+        return view('admin.my_services.dashboardAllServices', compact('services'));
     }
 
     /**
@@ -21,7 +21,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.my_services.create-edit');
     }
 
     /**
@@ -35,9 +35,14 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $service = Service::where('id', $id)->firstOrFail();
+        /* AUTH CONTROL */
+        if (auth()->user()->isAdmin == false) {
+            abort(404, 'Not Found');
+        }
+        return view("admin.my_services.show", compact("service"));
     }
 
     /**
@@ -45,7 +50,8 @@ class ServiceController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.my_services.show');
+
     }
 
     /**
@@ -59,8 +65,10 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $service = Service::where('id', $id)->firstOrFail();
+        $service->delete();
+        return redirect()->route('admin.dashboard-services')->with('success',"Il servizio è stato eliminato correttamente");
     }
 }
