@@ -1,1 +1,7 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+@import './general';
+
+@import './client-side/jumbo';
+@import './client-side/header';
+@import './client-side/section';

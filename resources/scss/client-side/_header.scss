@@ -1,0 +1,29 @@
+#full-navbar{
+    z-index: 999;
+
+    ul a.nav-link{
+        color: white;
+        border-bottom:  3px solid white;
+        &:hover{
+        scale: 1.4;
+        border: 3px solid white;
+        margin: 0px 25px;
+    }
+    }
+    div{
+        button{}
+        #navbarSupportedContent{
+            #logoHeader{
+                height:100px ;
+                width: 300px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+                &:hover{
+                    scale: 1.2;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+section#virtualMachineService,
+section#containerService,
+section#storageService{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section.virtualMachineService,
+section.containerService,
+section.storageService{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 150px 0 100px;
+    h1{
+        font-size: 5rem;
+        text-align: center;
+    }
+    p{
+        text-align: center;
+        width: 75%;
+        margin: 0 auto;
+        font-size: 20px;
+    }
+
+    .service-box {
+        overflow: hidden;
+        display: flex;
+
+        height: 75%;
+        width: 60%;
+        background: linear-gradient(162deg, rgba(0, 0, 0, 1) 0%, rgb(202, 202, 202) 27%);
+        box-shadow: 15px 15px 15px rgba(255, 255, 255, 0.4);
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+        animation: pulse 2s infinite alternate;
+
+        &:hover {
+            animation-play-state: paused;
+        }
+
+        .image{
+            width: 40%;
+        }
+        .description{
+            display: flex;
+            flex-direction: column;
+            justify-content:space-evenly;
+            width: 60%;
+            padding: 30px 20px;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.05);
+        }
+    }
+}
