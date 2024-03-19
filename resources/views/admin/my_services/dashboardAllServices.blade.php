@@ -1,6 +1,27 @@
 @extends('layouts.app')
 @section('content')
     <div class="container vh-100 d-flex justify-content-center align-items-center">
+        @if (session('success'))
+        <div class="display-none" id="successDelete"></div>
+        <div class="modal fade opacity-100 top-50 overflow-visible " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5 text-black " id="exampleModalLabel">Eliminazione Servizio</h1>
+                <button type="button" class="btn-close" onclick="closeModal()" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-black "> {{ session('success') }} </p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()" id="closeButton" data-bs-dismiss="modal">Chiudi</button>
+
+                </div>
+            </div>
+            </div>
+        </div>
+
+    @endif
         <table class="table table-dark table-hover text-center fs-2 ">
             <thead>
                 <tr class="py-2">
@@ -40,4 +61,20 @@
             </tbody>
         </table>
     </div>
+
+    <script>
+        let deleteFlag = document.getElementById('successDelete');
+        let closeButton = document.getElementById('closeButton');
+
+        if (deleteFlag) {
+            exampleModal.classList.add('d-block');
+        }
+
+
+        function closeModal() {
+            exampleModal.classList.remove('d-block');
+            exampleModal.classList.add('d-none');
+        }
+
+    </script>
 @endsection
