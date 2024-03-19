@@ -19,9 +19,21 @@
                             <td>{{$service->duration_in_month}}</td>
                             <td><strong>{{$service->price}}</strong><i class="fa-solid fa-euro-sign"></i> </td>
                             <td class="d-flex justify-content-center gap-3">
+
+                                {{-- VIEW SERVICE --}}
                                 <button class="btn btn-outline-success"><a class="text-light" href="{{route('admin.service.show',$service->id)}}"><i class="fa-solid fa-eye fs-2"></i></a></button>
+
+                                {{-- EDIT SERVICE --}}
                                 <button class="btn btn-outline-warning"><a class="text-light" href="{{route('admin.service.show',$service->id)}}"><i class="fa-solid fa-pencil fs-2"></i></a></button>
-                                <button class="btn btn-outline-danger"><a class="text-light" href="{{route('admin.service.show',$service->id)}}"><i class="fa-solid fa-trash fs-2"></i></a></button>
+
+                                <form class="d-flex justify-content-center" action={{route("admin.service.destroy",$service->id)}} method="post" onsubmit="return confirm('Sei sicuro di voler eliminare questo servizio?')">
+                                    {{-- DELETE SERVICE --}}
+                                    @csrf
+                                    @method('DELETE')
+                                    <button  type="submit" class="btn btn-outline-danger h-100"><i class="fa-solid fa-trash fs-2"></i></button>
+                                </form>
+
+
                             </td>
                         </tr>
                 @endforeach
